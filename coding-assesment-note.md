@@ -11,7 +11,7 @@ a functional feature that gives users the ability to search for anime titles usi
   - Display loader
 - Anime detail page
   - Include much more detail than the anime card
-  - add skeleton loading
+  - Make this a ssr
 - Anime Card
   - Make it responsive
   - Adoptable to light, & dark theme to future implementation
@@ -27,3 +27,4 @@ a functional feature that gives users the ability to search for anime titles usi
 ## Notes
 
 - Search typehead, make it not available for SSR for each item. as per user behavior of search typehead
+- Pagination for future enhancement

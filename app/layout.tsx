@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 
 import LayoutWrapper from "@/src/layout";
 import "./globals.css";
+import Link from "next/link";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -23,7 +24,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        <LayoutWrapper>{children}</LayoutWrapper>
+        <LayoutWrapper>
+          <div className="text-center py-8">
+            <Link
+              href="/"
+              className="text-5xl md:text-6xl font-bold bg-linear-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-4"
+            >
+              Anime Universe
+            </Link>
+            <p className="text-xl text-gray-600 dark:text-gray-400 font-medium">
+              Discover your next favorite anime ✨
+            </p>
+          </div>
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );

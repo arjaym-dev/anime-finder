@@ -1,5 +1,5 @@
 import { IAnime, IPagination } from "@/src/interfaces/anime";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 interface IApiResponse<TData = Record<string, unknown>[]> {
   data: TData;
@@ -8,7 +8,7 @@ interface IApiResponse<TData = Record<string, unknown>[]> {
   status: string;
 }
 
-const useAnimeSearchRequest = async (
+const getAnimeSearchRequest = async (
   query: string,
 ): Promise<IApiResponse<IAnime[]>> => {
   try {
@@ -31,15 +31,34 @@ const useAnimeSearchRequest = async (
   }
 };
 
+export const getAnimeDetailSearchRequest = async (
+  id: string,
+): Promise<Pick<IApiResponse<IAnime>, "data">> => {
+  try {
+    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
+    const { data = {} } = await res.json();
+
+    return {
+      data: data,
+    };
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const useAnimeSearch = () => {
   return useMutation({
     mutationKey: ["anime-search"],
-    mutationFn: useAnimeSearchRequest,
-    onSuccess: (data) => {
-      console.log("Search successful:", data);
-    },
-    onError: (error) => {
-      console.error("Search failed:", error);
-    },
+    mutationFn: getAnimeSearchRequest,
+    onSuccess: (data) => {},
+    onError: (error) => {},
+  });
+};
+
+export const useAnimeDetailSearch = (id: string) => {
+  return useQuery({
+    queryKey: ["anime-detail", id],
+    queryFn: () => getAnimeDetailSearchRequest(id),
+    enabled: !!id,
   });
 };
