@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+.next
+out
+coverage
+.vscode
+.DS_Store
+*.log
+*.lock
+*.json
+*.config.js
+*.min.js
+*.map

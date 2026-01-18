@@ -1,0 +1,12 @@
+{
+    "chat.mcp.enabled": true,
+    "chat.mcp.discovery.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.guides.indentation": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.bracketSpacing": true,
+    "cSpell.words": [
+        "Animes",
+        "partialize"
+    ],
+}
