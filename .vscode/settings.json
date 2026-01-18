@@ -7,6 +7,7 @@
     "prettier.bracketSpacing": true,
     "cSpell.words": [
         "Animes",
-        "partialize"
+        "partialize",
+        "typehead"
     ],
 }
